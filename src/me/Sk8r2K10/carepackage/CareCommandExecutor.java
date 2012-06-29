@@ -37,6 +37,12 @@ public class CareCommandExecutor implements CommandExecutor {
                 sender.sendMessage(plugin.pre + ChatColor.GRAY + "/carepackage [player]");
                 return false;
             }
+            
+            if (Bukkit.getPlayer(args[0]) == sender) {
+                
+                sender.sendMessage(plugin.pre + ChatColor.RED + "Don't send Care Packages to yourself!");
+                return false;
+            }
 
             if (args.length == 1 && Bukkit.getPlayer(args[0]) != null && sender.hasPermission("carepackage.send")) {
                 Player target = Bukkit.getPlayer(args[0]);
@@ -49,10 +55,26 @@ public class CareCommandExecutor implements CommandExecutor {
                 }
                 
                 Location loc = plugin.util.findEmptyBlock(targetloc, world);
+                double cost = plugin.getConfig().getDouble("options.cost");
+                
                 if (loc == null) {
                     sender.sendMessage(plugin.pre + ChatColor.RED + "No area to place chest!");
                     return false;
                 }
+                
+                if (cost != 0 && !sender.hasPermission("carepackage.overrides.ignorecost") && !sender.getName().equalsIgnoreCase("console")) {
+                    if (plugin.util.getEcon().getBalance(sender.getName()) >= cost) {
+                        
+                        plugin.util.getEcon().withdrawPlayer(sender.getName(), cost);
+                        sender.sendMessage(plugin.pre + ChatColor.YELLOW + "That Care Package cost you: " + cost + " " + plugin.util.getEcon().currencyNameSingular());
+                        sender.sendMessage(plugin.pre + ChatColor.YELLOW + "Make sure " + target.getName() + " makes good use of it!");
+                    } else {
+                        sender.sendMessage(plugin.pre + ChatColor.RED + "You don't have enough money!");
+                        sender.sendMessage(plugin.pre + ChatColor.RED + "You need " + cost + " " + plugin.util.getEcon().currencyNamePlural());
+                        return false;
+                    }
+                }
+                
                 loc.getBlock().setType(Material.CHEST);
                 Chest chestblock = (Chest) loc.getBlock().getState();
                 

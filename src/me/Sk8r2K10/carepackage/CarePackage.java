@@ -33,26 +33,7 @@ public class CarePackage extends JavaPlugin {
         getConfig().options().copyDefaults(true);
         saveConfig();
         
-        setupContents();
-	}
-    
-    public void setupContents() {
-        cont = (List<String>) this.getConfig().getList("chest.contents");
-        if (cont.size() > 27) {
-            this.log.severe("[CarePackage] Too many items to add to chest!");
-            this.log.severe("[CarePackage] Check your config.");
-            this.log.severe("[CarePackage] Disabling plugin.");
-            this.getPluginLoader().disablePlugin(this);
-            return;
-        }
-
-        if (cont == null) {
-            this.log.severe("[CarePackage] Contents of CarePackage have not been setup!");
-            this.log.severe("[CarePackage] Check your config.");
-            this.log.severe("[CarePackage] Disabling plugin.");
-            this.getPluginLoader().disablePlugin(this);
-            return;
-        }
-        this.log.info("[CarePackage] Chest contents created.");
-    }	
+        util.setupContents();
+        util.setupEconomy();
+	}	
 }
