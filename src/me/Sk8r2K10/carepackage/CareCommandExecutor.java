@@ -31,7 +31,7 @@ public class CareCommandExecutor implements CommandExecutor {
             return false;
         }
         
-        if (commandLabel.equalsIgnoreCase("carepackage") || commandLabel.equalsIgnoreCase("cp")) {
+        if (commandLabel.equalsIgnoreCase("carepackage") || commandLabel.equalsIgnoreCase("cp")) { // Aliases in plugin.yml, Why don't you work. 3= <
             if (args.length != 1) {
                 sender.sendMessage(plugin.pre + ChatColor.RED + "Invalid arguments.");
                 sender.sendMessage(plugin.pre + ChatColor.GRAY + "/carepackage [player]");

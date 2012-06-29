@@ -11,7 +11,7 @@ public class CarePackage extends JavaPlugin {
     public int ID;
     public List<String> cont;
     public Utils util = new Utils(this);
-    public Logger log = Logger.getLogger("Minecraft");
+    public static final Logger log = Logger.getLogger("Minecraft");
     public String pre = ChatColor.GREEN + "[" + ChatColor.YELLOW + "CarePackage" + ChatColor.GREEN + "] " + ChatColor.RESET;
 
 	

@@ -4,6 +4,7 @@
 # If you add an item to the contents, then ou MUST add a new node below in the amounts section with the same name, with the amount you want next to it.
 # So if you wanted to add 32 Gold to the chest, You would add Gold_Ingot to the list, then below amounts, using proper formatting, you would put Gold_Ingot: 32
 # Cooldown is in seconds. If your server has a slow tick rate, you may notice that it doesn't cooldown in the time set here.
+# Cost is how much you want players to pay to send a CarePackage
 #  -> It may require some experimentation to get to the timing that you're looking for.
 # DO NOT USE TAB! Use only spaces in this file instead!
 # MAKE SURE TO REMOVE EXAMPLE WHEN FINISHED CONFIGURING!
@@ -17,4 +18,4 @@ chest:
     Example: 9001
 options:
   cooldown: 15
-    
+  cost: 500    

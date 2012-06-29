@@ -12,3 +12,6 @@ permissions:
   carepackage.send:
     description: Allows a player to send a carepackage
     default: op
+  carepackage.overrides.ignorecost:
+    description: Allows a player to send a carepackage without paying
+    default: op
