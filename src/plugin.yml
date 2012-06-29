@@ -1,0 +1,14 @@
+name: CarePackage
+main: me.Sk8r2K10.carepackage.CarePackage
+author: Sk8r2K9
+version: 1.0
+description: Send a Chest of items to a player
+softdepend: [Vault]
+commands: 
+  carepackage:
+    description: Sends a carepackage to a player
+    aliases: [cp]
+permissions:
+  carepackage.send:
+    description: Allows a player to send a carepackage
+    default: op

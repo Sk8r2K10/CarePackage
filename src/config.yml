@@ -1,0 +1,20 @@
+# CarePackage
+# In the contents node, list the materials you want to give below "contents" in the format given. 
+# Below "amounts", are the amounts for each item listed in the contents node. 
+# If you add an item to the contents, then ou MUST add a new node below in the amounts section with the same name, with the amount you want next to it.
+# So if you wanted to add 32 Gold to the chest, You would add Gold_Ingot to the list, then below amounts, using proper formatting, you would put Gold_Ingot: 32
+# Cooldown is in seconds. If your server has a slow tick rate, you may notice that it doesn't cooldown in the time set here.
+#  -> It may require some experimentation to get to the timing that you're looking for.
+# DO NOT USE TAB! Use only spaces in this file instead!
+# MAKE SURE TO REMOVE EXAMPLE WHEN FINISHED CONFIGURING!
+
+chest:
+  contents: [Dirt, Stone, Diamond_Sword, Example]
+  amounts: 
+    Dirt: 64
+    Stone: 32
+    Diamond_Sword: 1
+    Example: 9001
+options:
+  cooldown: 15
+    
